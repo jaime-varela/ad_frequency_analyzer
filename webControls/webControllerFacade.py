@@ -51,7 +51,3 @@ class webControllerFacade:
     def __del__(self):
         self.__driver__.close()
 
-
-from decouple import config
-
-print(config('WEBDRIVER_EXEC_PATH'))
