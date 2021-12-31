@@ -1,1 +1,4 @@
 WEBDRIVER_EXEC_PATH=/opt/homebrew/Caskroom/chromedriver/96.0.4664.45/chromedriver
+FB_LOGIN_URL=https://www.facebook.com/login.php
+FB_EMAIL=yourEmail
+FB_PASSWORD=yourPassword

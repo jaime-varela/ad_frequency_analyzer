@@ -3,7 +3,7 @@ from webControls.webControllerFacade import webControllerFacade
 
 webFacade = webControllerFacade()
 
-webFacade.goToURL("https://www.tutorialspoint.com/index.htm")
+webFacade.goToAuthenticatedFacebookPage()
 
 numpyImg = webFacade.takeScreenShot()
 
