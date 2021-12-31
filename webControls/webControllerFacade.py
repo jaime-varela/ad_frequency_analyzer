@@ -2,11 +2,6 @@
 
 # This file needs to provide a class interface for doing the following
 
-# TODO: Take screenshots
-
-# TODO: manage web sessions
-
-# TODO: manage scrolling
 
 
 from selenium import webdriver
@@ -19,6 +14,7 @@ import io
 import numpy as np
 import time
 
+from selenium.webdriver.chrome.options import Options
 
 
 class webControllerFacade:
@@ -27,8 +23,19 @@ class webControllerFacade:
 
 
     def __init__(self,exec_path=config('WEBDRIVER_EXEC_PATH')):
+        option = Options()
+
+        option.add_argument("--disable-infobars")
+        option.add_argument("start-maximized")
+        option.add_argument("--disable-extensions")
+
+        # Pass the argument 1 to allow and 2 to block
+        option.add_experimental_option("prefs", { 
+            "profile.default_content_setting_values.notifications": 1 
+        })
+
         self.__webservice__ = Service(exec_path)
-        self.__driver__ = webdriver.Chrome(service=self.__webservice__)
+        self.__driver__ = webdriver.Chrome(chrome_options=option,service=self.__webservice__)
 
 
     def goToURL(self,urlString):
@@ -48,7 +55,7 @@ class webControllerFacade:
         login_button = self.__driver__.find_element_by_id('loginbutton')
         login_button.click() # Send mouse click
  
-        time.sleep(2) # Wait for 2 seconds for the page to show up        
+        time.sleep(3) # Wait for 3 seconds for the page to show up        
         return
 
     def takeScreenShot(self):
@@ -59,6 +66,10 @@ class webControllerFacade:
         numpy_array = np.asarray(img)
         return numpy_array
 
+    def scrollDownOnePage(self):
+        self.__driver__.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(2) # Wait for 2 seconds for the page to show up        
+        return
 
 
     def __del__(self):
