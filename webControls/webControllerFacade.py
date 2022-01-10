@@ -23,6 +23,7 @@ class webControllerFacade:
 
 
     def __init__(self,exec_path=config('WEBDRIVER_EXEC_PATH')):
+        '''exec_path == webdriver exe path'''
         option = Options()
 
         option.add_argument("--disable-infobars")
@@ -39,11 +40,13 @@ class webControllerFacade:
 
 
     def goToURL(self,urlString):
+        '''Open a url'''
         self.__driver__.get(urlString)
 
 
 
     def goToAuthenticatedFacebookPage(self,email=config('FB_EMAIL'),password=config('FB_PASSWORD')):
+        '''Opens facebook.com with the email and password configuration'''
         self.goToURL(config('FB_LOGIN_URL'))
         time.sleep(1) # Wait for some time to load
         email_element = self.__driver__.find_element_by_id('email')
@@ -67,6 +70,7 @@ class webControllerFacade:
         return numpy_array
 
     def scrollDownOnePage(self):
+        '''Scrolls down one page in the current web session'''
         self.__driver__.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(2) # Wait for 2 seconds for the page to show up        
         return
