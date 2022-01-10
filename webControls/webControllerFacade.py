@@ -7,7 +7,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome import service
 from selenium.webdriver.chrome.service import Service
-
+from selenium.webdriver.common.keys import Keys
 from decouple import config
 from PIL import Image
 import io
@@ -70,8 +70,10 @@ class webControllerFacade:
         return numpy_array
 
     def scrollDownOnePage(self):
-        '''Scrolls down one page in the current web session'''
-        self.__driver__.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        '''Scrolls down roughly one page in the current web session'''
+        html = self.__driver__.find_element_by_tag_name('html')
+        html.send_keys(Keys.PAGE_DOWN)
+
         time.sleep(2) # Wait for 2 seconds for the page to show up        
         return
 
