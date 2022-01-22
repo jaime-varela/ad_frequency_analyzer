@@ -1,7 +1,7 @@
 from os import wait
-from tesseractControls.tesseractUtils import numpyImageToTex
+from tesseractControls.tesseractUtils import numpyImageToText
 from webControls.webControllerFacade import webControllerFacade
-from utils import getFBSponsoredSidePane, getFBfeedScreenshot
+from utils import getFBSidePane, getFBfeedScreenshot
 
 webFacade = webControllerFacade()
 
@@ -28,10 +28,10 @@ plt.show()
 print("The image extracted Feed text is")
 print("------------------------------")
 
-print(numpyImageToTex(clippedShot))
+print(numpyImageToText(clippedShot))
 
 
-sponsoredShot = getFBSponsoredSidePane(webFacade)
+sponsoredShot = getFBSidePane(webFacade)
 plt.imshow(sponsoredShot, interpolation='nearest')
 plt.show()
 
@@ -39,4 +39,4 @@ plt.show()
 print("The image extracted Sponsored text is")
 print("------------------------------")
 
-print(numpyImageToTex(sponsoredShot))
+print(numpyImageToText(sponsoredShot))

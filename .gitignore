@@ -3,6 +3,11 @@
 #vscode
 .vscode
 
+#mac
+.DS_Store
+
+# Data files
+dump/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

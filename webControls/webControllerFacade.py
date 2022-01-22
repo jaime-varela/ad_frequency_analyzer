@@ -37,7 +37,8 @@ class webControllerFacade:
 
         self.__webservice__ = Service(exec_path)
         self.__driver__ = webdriver.Chrome(chrome_options=option,service=self.__webservice__)
-
+        # Fix the size
+        self.__driver__.set_window_size(1280 ,1024)
 
     def goToURL(self,urlString):
         '''Open a url'''
