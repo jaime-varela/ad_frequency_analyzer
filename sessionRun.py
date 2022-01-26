@@ -49,6 +49,7 @@ def runSession(webFacade,numberOfScrolls=30,outputDirectory="./dump/"):
     saveTextToFile(totalText,finalTextFile)
     
 
-
-webFacade = webControllerFacade()
-runSession(webFacade)
+if __name__ == '__main__':
+    # Execute when the module is not initialized from an import statement.
+    webFacade = webControllerFacade()
+    runSession(webFacade)
