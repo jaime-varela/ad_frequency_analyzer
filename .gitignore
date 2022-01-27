@@ -3,6 +3,9 @@
 #vscode
 .vscode
 
+# Items json file
+adsToAnalyze.json
+
 #mac
 .DS_Store
 
