@@ -1,11 +1,10 @@
-from datetime import date
-from json.tool import main
-from os import wait
 from tesseractControls.tesseractUtils import numpyImageToText
 from webControls.webControllerFacade import webControllerFacade
 from utils import getFBSidePane, getFBfeedScreenshot
-import datetime
 from PIL import Image
+import os
+from decouple import config
+
 
 def saveImageToPng(numpyImage, basePathAndName):
     im = Image.fromarray(numpyImage)
@@ -20,12 +19,14 @@ def saveTextToFile(stringValue,basePathAndName):
 
 
 def runSession(webFacade,numberOfScrolls=30,outputDirectory="./dump/"):
+    if not os.path.exists(outputDirectory):
+        os.makedirs(outputDirectory)
+
     nameDelim = "_"
-    webFacade.goToAuthenticatedFacebookPage()    
     totalText= ""
 
     sponsoredShot = getFBSidePane(webFacade)
-    outputBasename = outputDirectory + "sidePane_img" + nameDelim + str(datetime.datetime.now())
+    outputBasename = outputDirectory + "sidePane_img"
     saveImageToPng(sponsoredShot,outputBasename)
     text = numpyImageToText(sponsoredShot)
     saveTextToFile(text,outputBasename)
@@ -33,7 +34,7 @@ def runSession(webFacade,numberOfScrolls=30,outputDirectory="./dump/"):
     for x in range(numberOfScrolls):
 
         clippedShot = getFBfeedScreenshot(webFacade)
-        outputBasename = outputDirectory + "img" + str(x) + nameDelim + str(datetime.datetime.now())
+        outputBasename = outputDirectory + "img" + str(x)
 
         # Begin Image store
         saveImageToPng(clippedShot,outputBasename)
@@ -45,11 +46,12 @@ def runSession(webFacade,numberOfScrolls=30,outputDirectory="./dump/"):
         totalText += text + "\n\n"
         webFacade.scrollDownOnePage()
 
-    finalTextFile = outputDirectory + "total_text_" + str(datetime.datetime.now())
+    finalTextFile = outputDirectory + "total_text"
     saveTextToFile(totalText,finalTextFile)
     
 
 if __name__ == '__main__':
     # Execute when the module is not initialized from an import statement.
     webFacade = webControllerFacade()
+    webFacade.goToAuthenticatedFacebookPage(email=config('JAIME_FB_EMAIL'),password=config('JAIME_FB_PASSWORD'))
     runSession(webFacade)

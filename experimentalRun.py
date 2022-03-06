@@ -10,24 +10,8 @@
 from webControls.webControllerFacade import webControllerFacade
 from decouple import config
 from sessionRun import runSession
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import datetime
+import time
 
 
 
@@ -38,13 +22,17 @@ if __name__ == '__main__':
     webFacadeMaria = webControllerFacade()
     webFacadeMaria.goToAuthenticatedFacebookPage(email=config('MARIA_FB_EMAIL'),password=config('MARIA_FB_PASSWORD'))
     
-    runSession(webFacadeMaria,outputDirectory="")
+    mariaDirectoryName = "./data/maria_" + str(datetime.datetime.now()) + "/"
+    runSession(webFacadeMaria,outputDirectory=mariaDirectoryName)
 
+
+    # Sleep for a bit before next session
+    time.sleep(30)
 
     webFacadeJaime = webControllerFacade()
     webFacadeJaime.goToAuthenticatedFacebookPage(email=config('JAIME_FB_EMAIL'),password=config('JAIME_FB_PASSWORD'))
-    runSession(webFacadeMaria,outputDirectory="")
-    
-    
 
+    jaimeDirectoryName = "./data/jaime_" + str(datetime.datetime.now()) + "/"    
+    runSession(webFacadeJaime,outputDirectory=jaimeDirectoryName)
+    
 
