@@ -15,6 +15,7 @@ import numpy as np
 import time
 
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 class webControllerFacade:
@@ -35,7 +36,7 @@ class webControllerFacade:
             "profile.default_content_setting_values.notifications": 1 
         })
 
-        self.__webservice__ = Service(exec_path)
+        self.__webservice__ = Service(ChromeDriverManager().install())
         self.__driver__ = webdriver.Chrome(chrome_options=option,service=self.__webservice__)
         # Fix the size
         self.__driver__.set_window_size(1280 ,1024)
