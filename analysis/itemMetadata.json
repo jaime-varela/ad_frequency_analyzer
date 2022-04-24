@@ -1,0 +1,12 @@
+{
+    "lenovo": {
+        "relatedWords": ["thinkpad","ideapad"],
+        "date": "2022-04-17",
+        "discussionType":"googled"
+    },
+    "cosplay":{
+        "relatedWords": ["costume","anime","roleplay","role-play"],
+        "date": "2022-03-23",
+        "discussionType":"spoken"
+    }
+}
