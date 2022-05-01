@@ -8,5 +8,85 @@
         "relatedWords": ["costume","anime","roleplay","role-play"],
         "date": "2022-03-23",
         "discussionType":"spoken"
+    },
+    "sport memorabilia": {
+        "relatedWords": ["football","patriots","baseball cards","brady","super bowl","gronkowski","memorabilia","trophy"],
+        "date": "2022-04-07",
+        "discussionType":"texted"
+    },
+    "guitar" : {
+        "relatedWords": ["musical instrument","sam ash","yamaha","gibson"],
+        "date": "2022-04-14",
+        "discussionType":"texted"
+    },
+    "febreze" : {
+        "relatedWords": ["air freshener","scented candles","air-freshner","odor elimination"],
+        "date": "2022-04-20",
+        "discussionType":"spoken"
+    },
+    "backpack" : {
+        "relatedWords": ["jansport","satchel","laptop bag"],
+        "date": "2022-03-19",
+        "discussionType":"spoken"
+    },
+    "concrete" : {
+        "relatedWords": ["home depot","building supplies","construction equipment","cement"],
+        "date": "2022-03-27",
+        "discussionType":"spoken"
+    },
+    "chess" : {
+        "relatedWords": ["rook","chessboard"],
+        "date": "2022-04-13",
+        "discussionType":"texted"
+    },
+    "escape room" : {
+        "relatedWords": ["escape the room","puzzle room","escape game","trapology","room escape"],
+        "date": "2022-04-03",
+        "discussionType":"spoken"
+    },
+    "sky diving" : {
+        "relatedWords": ["skydiving","sky-diving"],
+        "date": "2022-04-03",
+        "discussionType":"spoken"
+    },
+    "language lessons" : {
+        "relatedWords": ["duolingo","spanish lessons","spanish class","french class","french lessons"],
+        "date": "2022-03-25",
+        "discussionType":"texted"
+    },
+    "fishing gear" : {
+        "relatedWords": ["camping","fishing"," tent"],
+        "date": "2022-03-20",
+        "discussionType":"spoken"
+    },
+    "massage" : {
+        "relatedWords": ["massages","masseuse"],
+        "date": "2022-03-30",
+        "discussionType":"texted"
+    },
+    "wine tasting" : {
+        "relatedWords": ["napa","vineyard","sonoma"],
+        "date": "2022-04-03",
+        "discussionType":"texted"
+    },
+    "over the counter medication" : {
+        "relatedWords": ["heart burn","medication", "pills","cold sore","sinus","over the counter"],
+        "date": "2022-03-26",
+        "discussionType":"spoken"
+    },
+    "vegan cheese" : {
+        "relatedWords": ["dairy substitute","non-dairy"],
+        "date": "2022-04-08",
+        "discussionType":"texted"
+    },
+    "limo service" : {
+        "relatedWords": ["limo","car service","TLC"],
+        "date": "2022-04-22",
+        "discussionType":""
+    },
+    "lego" : {
+        "relatedWords": ["toy blocks"],
+        "date": "2022-04-22",
+        "discussionType":""
     }
 }

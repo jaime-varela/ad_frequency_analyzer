@@ -168,3 +168,4 @@ cython_debug/
 
 analysis/*.tsv
 analysis/.Rhistory
+analysis/plots/

@@ -21,17 +21,16 @@ def main():
         extractedSponsorAdList = extractedSponsorAdList + [extractedSidePane]
 
         for adString in extractedSponsorAdList:
-            wordsInAd = set([word.lower() for word in adString.split(" ")])
 
+            adStringLowered = adString.replace("\n","").replace("\r", "").lower()
             for itemKey in item_metadata_dict.keys():
                 relatedWords = item_metadata_dict[itemKey]['relatedWords']
                 relatedWords = relatedWords + [itemKey]
                 relatedWords = [ word.lower() for word in relatedWords]
                 for relatedWord in relatedWords:
-                    # TODO: make this work for 2 words
-                    if relatedWord in wordsInAd:
+                    if adStringLowered.find(relatedWord) != -1:
                         person, dateDiscovered = subDir.split(" ")[0].split("_")
-                        ad_count_table.append([itemKey, dateDiscovered, person, adString])
+                        ad_count_table.append([itemKey, dateDiscovered, person, adString.replace("\n","").replace("\r", "")])
 
     # save table
     ad_count_table_df = pd.DataFrame(ad_count_table)
